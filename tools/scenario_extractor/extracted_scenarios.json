@@ -1,0 +1,58 @@
+[
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with valid standard user credentials",
+    "line": 10,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with locked out user",
+    "line": 20,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with problem user",
+    "line": 29,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with performance glitch user",
+    "line": 38,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with invalid credentials",
+    "line": 46,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with empty credentials",
+    "line": 55,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Login with username but empty password",
+    "line": 64,
+    "tags": "@authentication"
+  },
+  {
+    "feature": "Authentication",
+    "type": "Scenario",
+    "name": "Logout Functionality",
+    "line": 73,
+    "tags": "@authentication"
+  }
+]
