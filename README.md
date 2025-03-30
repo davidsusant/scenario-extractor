@@ -1,4 +1,4 @@
-# scenario-extractor
+# Extract all scenarios in a feature file
 
 How to run the script?
 ```bash
