@@ -1,0 +1,9 @@
+Feature,Type,Name,Line,Tags
+Authentication,Scenario,Login with valid standard user credentials,10,@authentication
+Authentication,Scenario,Login with locked out user,20,@authentication
+Authentication,Scenario,Login with problem user,29,@authentication
+Authentication,Scenario,Login with performance glitch user,38,@authentication
+Authentication,Scenario,Login with invalid credentials,46,@authentication
+Authentication,Scenario,Login with empty credentials,55,@authentication
+Authentication,Scenario,Login with username but empty password,64,@authentication
+Authentication,Scenario,Logout Functionality,73,@authentication
