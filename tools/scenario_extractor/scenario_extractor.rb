@@ -1,4 +1,5 @@
 require 'gherkin'
+require 'json'
 
 class ScenarioExtractor
   def self.extract_scenarios(file_path)
@@ -76,6 +77,14 @@ class ScenarioExtractor
 
     puts "\nTotal Scenarios: #{scenarios.count}"
   end
+
+  def self.export_scenarios_to_json(scenarios, output_file)
+    # Export scenarios to a JSON file
+    File.open(output_file, 'w') do |file|
+      file.write(JSON.pretty_generate(scenarios))
+    end
+    puts "Scenarios exported to #{output_file}"
+  end
 end
 
 # Determine script location and project root
@@ -92,9 +101,13 @@ end
 # Construct full path to the feature file
 relative_feature_path = ARGV[0]
 feature_file_path = File.join(project_root, relative_feature_path)
+output_json = File.join(script_dir, 'extracted_scenarios.json')
 
 # Extract scenarios
 all_scenarios = ScenarioExtractor.extract_scenarios(feature_file_path)
 
 # Print scenarios
 ScenarioExtractor.print_scenarios(all_scenarios)
+
+# Export to JSON
+ScenarioExtractor.export_scenarios_to_json(all_scenarios, output_json)
