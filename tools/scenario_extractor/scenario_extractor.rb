@@ -1,5 +1,6 @@
 require 'gherkin'
 require 'json'
+require 'csv'
 
 class ScenarioExtractor
   def self.extract_scenarios(file_path)
@@ -85,6 +86,26 @@ class ScenarioExtractor
     end
     puts "Scenarios exported to #{output_file}"
   end
+
+  def self.export_scenarios_to_csv(scenarios, output_file)
+    # Export scenarios to a CSV file
+    CSV.open(output_file, 'w') do |csv|
+      # Write headers
+      csv << ['Feature', 'Type', 'Name', 'Line', 'Tags']
+
+      # Write scenarios
+      scenarios.each do |scenario|
+        csv << [
+          scenario[:feature],
+          scenario[:type],
+          scenario[:name],
+          scenario[:line],
+          scenario[:tags]
+        ]
+      end
+    end
+    puts "Scenarios exported to #{output_file}"
+  end
 end
 
 # Determine script location and project root
@@ -102,6 +123,7 @@ end
 relative_feature_path = ARGV[0]
 feature_file_path = File.join(project_root, relative_feature_path)
 output_json = File.join(script_dir, 'extracted_scenarios.json')
+output_csv = File.join(script_dir, 'extracted_scenarios.csv')
 
 # Extract scenarios
 all_scenarios = ScenarioExtractor.extract_scenarios(feature_file_path)
@@ -111,3 +133,6 @@ ScenarioExtractor.print_scenarios(all_scenarios)
 
 # Export to JSON
 ScenarioExtractor.export_scenarios_to_json(all_scenarios, output_json)
+
+# Export to CSV
+ScenarioExtractor.export_scenarios_to_csv(all_scenarios, output_csv)
