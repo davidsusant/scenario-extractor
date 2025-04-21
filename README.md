@@ -3,6 +3,7 @@
 How to run the script?
 ```bash
 # copy your feature file to tools/scenario_extractor directory
+# from the directory of tools/scenario_extractor, run the below command
 # ruby scenarios_extractor.rb <relative_feature_file_path>
 ruby scenario_extractor.rb features/scenarios/authentication.feature
 ```
